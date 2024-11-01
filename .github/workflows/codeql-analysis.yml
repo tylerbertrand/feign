@@ -94,7 +94,7 @@ jobs:
         java-version: '21'
 
     - name: Compile project
-      run: ./mvnw -B -ntp clean package -Pquickbuild -Dtoolchain.skip=true
+      run: ./mvnw -B -ntp clean package -Pquickbuild -Dtoolchain.skip=true -Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remote.enabled=false
       env:
         DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
