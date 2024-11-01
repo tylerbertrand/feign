@@ -33,6 +33,9 @@
             <enabled>true</enabled>
         </local>
         <remote>
+            <server>
+                <url>https://ge.solutions-team.gradle.com/cache/exp3-take1</url>
+            </server>
             <enabled>true</enabled>
             <storeEnabled>#{isTrue(env['CI'])}</storeEnabled>
         </remote>
