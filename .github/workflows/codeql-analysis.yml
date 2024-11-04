@@ -93,10 +93,13 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
+    - name: Setup Develocity
+      uses: gradle/develocity-actions/setup-maven@v1.2
+      with:
+        develocity-access-key: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+
     - name: Compile project
       run: ./mvnw -B -ntp clean package -Pquickbuild -Dtoolchain.skip=true -Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remote.enabled=false
-      env:
-        DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
